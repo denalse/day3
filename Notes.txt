@@ -1,0 +1,62 @@
+1. Delete Under 'App', 'spec' file
+
+names: string[ ]
+
+<app-list [name] = "names">
+
+msg (names) -> (is a reference/pointer to) -> names objects
+
+number/string/boolean are primitive types
+array -> [ ], (known as references)
+object -> { } eg; json (known as references)
+
+JS/TS
+
+scalar: String, number, boolean
+references: object, array
+
+_______________< TRY OUTS >__________________
+
+function capitalize(n:string) {
+    n = n.toUpperCase()
+    console.info('capitalize: ', n)
+}
+let name = "fred" // as a string
+console.info('before name: ', name) //fred
+capitalize(name)                    //capitalize: FRED
+console.info('after name: ', name)  //fred
+_____________________________________________
+
+function capitalize(n) {
+    n[0] = n[0].toUpperCase()
+    console.info('capitalize: ', n)
+}
+let name = ['fred'] // as an array
+console.info('before name: ', name) //fred
+capitalize(name)                    //capitalize: FRED
+console.info('after name: ', name)  //FRED
+_____________________________________________
+
+
+formGroup
+    |
+    |__ formControl -> name
+    |
+    |__ formControl -> email
+    |
+    |__ formArray -> tasks
+            |
+            |__ formGroup (0)
+            |        |
+            |        |__ formControl -> task
+            |        |
+            |        |__ formControl -> priority
+            |
+            |__ formGroup (1)
+                    |
+                    |__ formControl -> task
+                    |
+                    |__ formControl -> priority 
+
+
+(scroll to page end) tsconfig.json ->     "strictTemplates": false //change
